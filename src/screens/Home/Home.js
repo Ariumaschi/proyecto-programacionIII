@@ -24,7 +24,7 @@ class Home extends Component{
         return(
             <React.Fragment>
               {
-                this.state.peliculas.map((pelicula, idx) => <PeliculaPopuCard key={pelicula.original_title + idx} datosPelicula={pelicula} />)
+                this.state.peliculas.map((pelicula, idx) => <PeliculaPopuCard key={pelicula.id} datosPelicula={pelicula} />)
               }
             </React.Fragment>
         )
