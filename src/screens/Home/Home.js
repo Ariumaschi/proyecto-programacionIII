@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import PeliculaPopuCard from '../../components/Peliculas/PeliculaPopuCard';
+import PeliculaPopuCard from '../../components/PeliculaPopuCard/PeliculaPopuCard';
 import './Home.css'
 
 class Home extends Component{
