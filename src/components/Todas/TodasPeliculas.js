@@ -30,7 +30,7 @@ class TodasPeliculas extends Component{
         fetch('https://api.themoviedb.org/3/movie/popular?api_key=0e7a6bf53a9c840b66557a6d28ea5004&language=en-US&page=' + this.state.page)
         .then( res => res.json())
         .then( data => this.setState({
-                peliculas: data.results
+                peliculas: this.state.peliculas.concat(data.results)
             },() => console.log(this.state.peliculas)
             ))
         .catch()
