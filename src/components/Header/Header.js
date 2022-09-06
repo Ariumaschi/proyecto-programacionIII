@@ -20,7 +20,7 @@ function Header() {
                     </li>
 
                     <li>
-                        <Link className="Link" to='/favoritos'> Favoritos </Link>
+                        <Link className="Link" to='/todas'> Ver Todas </Link>
                     </li>
 
                 </ul>

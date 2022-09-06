@@ -1,0 +1,17 @@
+.vermaspelis{
+    border: 5px;
+    background-color: white;
+    color: black;
+    margin: 4%;
+    padding: 1%;
+    border-radius: 5px;
+}
+
+.cont-vermas{
+    display: flex;
+    justify-content: center;
+}
+
+.pelicula-card *{
+    background-color: rgba(15, 14, 14, 0.76)
+}

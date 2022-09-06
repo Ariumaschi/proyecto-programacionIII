@@ -11,8 +11,8 @@ class Home extends Component{
         }
     }
     componentDidMount(){
-        //BUscamos datos
-        fetch('https://api.themoviedb.org/3/movie/popular?api_key=0e7a6bf53a9c840b66557a6d28ea5004&language=en-US&page=1 ')
+        //Buscamos datos
+        fetch('https://api.themoviedb.org/3/movie/popular?api_key=0e7a6bf53a9c840b66557a6d28ea5004&language=en-US&page=1')
         .then( res => res.json())
         .then( data => this.setState({
                 peliculas: data.results
