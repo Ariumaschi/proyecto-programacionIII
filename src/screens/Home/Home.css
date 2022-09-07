@@ -1,13 +1,17 @@
-.contenedor-card{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-evenly;
- }
 
  * {
     font-family: 'Oxygen', sans-serif;
     background-color: black;
+ }
+ .contenedor-card{
+   display: flex;
+   flex-wrap: wrap;
+   flex-direction: row;
+   justify-content: space-evenly;
+}
+
+ .h1{
+    color: antiquewhite;
  }
  
  

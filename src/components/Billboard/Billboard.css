@@ -1,0 +1,25 @@
+.pelicula-card{
+    color: #777;
+    font-size: 20px;
+    margin-bottom: 20px;
+    width: 24%;
+    background-color: rgba(15, 14, 14, 0.76);
+    border-radius: 5px;
+    box-shadow: 0 .15rem 1.75rem 0 rgba(58,59,69,.15);
+}
+.pelicula-card img{
+    width: 100%;
+    margin-bottom: 20px;
+}
+.pelicula-card:hover,
+.active{
+box-shadow: 0rem 0rem 10px 8px rgb(255 255 255 / 25%);
+}
+.pelicula-card p {
+    margin: 3%;
+    color: white
+}
+.pelicula-card h2, a{
+    margin: 3%;
+    color: white
+}
