@@ -7,8 +7,9 @@ function Header() {
     return (
         <section className= "header-padre">
             <div className="div-logo-header">
-                <p>PONER LOGO</p>
+                <img src='./img/logo.jpeg' alt="logo"/>
             </div>
+        
             
             <nav className="nav-header">
                 <ul className="main-nav">

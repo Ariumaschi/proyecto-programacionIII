@@ -5,6 +5,7 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Favoritos from "./screens/Favoritos/Favoritos";
 import TodasPeliculas from "./components/Todas/TodasPeliculas"
+import MovieDetail from "./components/MovieDetail/MovieDetail"
 import NotFound from "./screens/NotFound/NotFound";
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
           <Route path='/' exact={true} component={Home} />
           <Route path='/Favoritos' component={Favoritos} />
           <Route path='/Todas' component={TodasPeliculas} />
+          <Route path='/movies/id/:id' component={MovieDetail}/>
           <Route path='' component={ NotFound } />
         </Switch>
       </main>
