@@ -11,6 +11,7 @@ class Home extends Component{
             popularMovies:[], //aparecer personajes
             cartelMovies: [],
             nextUrl:'',
+            valor: '',
 
         
         }
@@ -33,9 +34,31 @@ class Home extends Component{
         .catch()
 
     }
+    evitarSubmit(e) {
+        e.preventDefault();
+    }
+    controlarCambios(e) {
+        this.setState({
+          valor: e.target.value,
+      }, () => {
+          fetch('https://api.themoviedb.org/3/search/movie?api_key=' + this.state.key + '&query=' + this.state.valor)
+              .then(data => data.json())
+              .then(info => {
+                  this.setState({
+                      resultados: info.results
+                  })
+              })
+          
+      })         
+  }
+
     render(){
         return(
             <React.Fragment>
+                 <form onSubmit={(e) => this.evitarSubmit(e)}>
+                    <input className="form" type="text" onChange={(e) => this.controlarCambios(e)} />
+                    <button className="form" type="submit">Buscar</button>
+                </form>
                  
                 <h1 className="h1"> Más Populares </h1>
                 <section className="contenedor-card">
