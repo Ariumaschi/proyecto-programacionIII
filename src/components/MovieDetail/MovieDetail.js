@@ -9,6 +9,8 @@ class MovieDetail extends Component {
             id: (props.match.params.id),
             movieData: {},
         }
+
+
     };
     componentDidMount() {
         fetch(`https://api.themoviedb.org/3/movie/${this.state.id}?api_key=0e7a6bf53a9c840b66557a6d28ea5004`)
@@ -24,25 +26,24 @@ class MovieDetail extends Component {
     }
     render() {
         return (
-            <>
-                <h1>Movie detail</h1>
-                { 
-                    <section className='movieDetail'>
-                        <article className='data'>
-                            <h2 className='detail-title'>{this.state.movieData.title}</h2>
+            <article className='detailArticle'>
+                <h1 className='movieDetail'>Detalle de pelicula</h1>
+                <section className='data'>
+                <img src={`https://image.tmdb.org/t/p/w342/${this.state.movieData.poster_path}`} alt='Imagen'/>
+                    <h2 className='titleDetail'>{this.state.movieData.title}</h2>
 
-                            <p className='detail-info'>Rating: {this.state.movieData.popularity}</p>
+                    <p className='dataDetail'>Rating: {this.state.movieData.popularity}</p>
 
-                            <p className='detail-info'>Release date: {this.state.movieData.release_date}</p>
+                    <p className='dataDetail'>Fecha de estreno: {this.state.movieData.release_date}</p>
 
-                            <p className='detail-info'>{this.state.movieData.overview}</p>
-                        </article>
-                    </section>
+                    <p className='dataDetail'>{this.state.movieData.overview}</p>
+                </section>
 
-                }
-            </>
+
+            </article>
         )
     }
+
 }
 
 export default MovieDetail

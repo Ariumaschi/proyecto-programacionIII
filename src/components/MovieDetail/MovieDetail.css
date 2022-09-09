@@ -1,0 +1,17 @@
+.detailArticle{
+    display: flex;
+    flex-direction: row;
+    background-color: #a2f7b5;
+    padding: 10px 20px;
+}
+.movieDetail{
+    color: aliceblue;
+}
+
+.titleDetail{
+    color: aliceblue;
+}
+
+.dataDetail{
+    color: aliceblue;
+}
