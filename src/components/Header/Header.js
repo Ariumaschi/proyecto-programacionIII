@@ -14,6 +14,7 @@ function Header() {
                     <li>
                         <Link className="Link" to='/'> Home </Link>
                     </li>
+
                     <li>
                         <Link className="Link" to='/favoritos'> Favoritos </Link>
                     </li>
@@ -21,9 +22,7 @@ function Header() {
                     <li>
                         <Link className="Link" to='/todas'> Ver Todas </Link>
                     </li>
-
                 </ul>
-
             </nav>
         </section>
     )

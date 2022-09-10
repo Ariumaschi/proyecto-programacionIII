@@ -23,7 +23,7 @@ class Favoritos extends Component{
 
     render(){
         return(
-            <section>
+            <section className="contenedor-card">
                 {this.state.peliculas.map((data, id) => <FavoritosCard key={data + '_' + id} data={data} />)}
             </section>
         )

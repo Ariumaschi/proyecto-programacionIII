@@ -1,0 +1,12 @@
+.contenedor-card{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+ }
+ .form{
+    color: antiquewhite;
+ }
+  .h1{
+     color: antiquewhite;
+  }

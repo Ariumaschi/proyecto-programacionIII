@@ -1,10 +1,18 @@
 import React, { Component } from "react";
+import { Link } from 'react-router-dom';
 
 class FavoritosCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      verMas: false
     };
+  }
+
+  masMenosInfo() {
+    this.setState({
+      verMas: !this.state.verMas
+    });
   }
 
   render() {
@@ -17,7 +25,8 @@ class FavoritosCard extends Component {
         ? <p>{this.props.data.overview}</p> 
         : <p>{this.props.data.overview.slice(0, 100)} [...]</p>
         }
-        <a> {this.state.verMas ? "Ver menos" : "Ver mas"} </a>
+        <a onClick={() => this.masMenosInfo()}>{this.state.verMas ? "Ver menos" : "Ver mas"} </a>
+        <Link  to={`/movies/id/${this.props.data.id}`}> Detalle </Link>
       </article>
     );
   }

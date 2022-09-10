@@ -69,7 +69,8 @@ class MovieDetail extends Component {
             <article className='detailArticle'>
                 <h1 className='movieDetail'>Detalle de pelicula</h1>
                 <section className='data'>
-                <img src={`https://image.tmdb.org/t/p/w342/${this.state.movieData.poster_path}`} alt='Imagen'/>
+                    <img src={`https://image.tmdb.org/t/p/w342/${this.state.movieData.poster_path}`} alt='Imagen'/>
+
                     <h2 className='titleDetail'>{this.state.movieData.title}</h2>
 
                     <p className='dataDetail' onClick={() => this.añadirFav(this.state.movieData.id)}>{this.state.añadirSacar ? '<3' : '</3'}</p>
