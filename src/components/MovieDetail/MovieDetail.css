@@ -1,15 +1,20 @@
 .detailArticle{
     display: flex;
-    flex-direction: row;
-    background-color: #a2f7b5;
-    padding: 10px 20px;
+    flex-direction: column;
+    background-color: black;
+    align-items: center;
 }
 .movieDetail{
     color: aliceblue;
+    text-align: left;
 }
 
-.titleDetail{
+.data {
+    border: solid 2px white;
     color: aliceblue;
+    width: 50%;
+    margin: 30px;
+    text-align: center;
 }
 
 .dataDetail{
