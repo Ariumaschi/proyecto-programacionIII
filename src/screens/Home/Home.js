@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Billboard from '../../components/Billboard/Billboard';
 import PeliculaPopuCard from '../../components/PeliculaPopuCard/PeliculaPopuCard';
 import './Home.css'
-import Form from '../../components/Form/Form'
 import { Link } from 'react-router-dom'
 
 class Home extends Component {
@@ -14,7 +13,7 @@ class Home extends Component {
             cartelMovies: [],
             nextUrl: '',
             valor: '',
-            peliculasBuscadas: []
+            resultadosPelicula: []
         }
     }
     componentDidMount() {
@@ -35,17 +34,38 @@ class Home extends Component {
             .catch()
 
     }
-    guardarPeliculasBuscadas(buscado) {
-        this.setState({
-            peliculasBuscadas: buscado//Las películas que te pasa elform
-        })
+    evitarSubmit(e) {
+        e.preventDefault();
     }
 
+    controlarCambios(e) {
+          this.setState({
+            valor: e.target.value,
+        }, () => {
+            if(e.target.value.length !== 0){
+            fetch('https://api.themoviedb.org/3/search/movie?api_key=' + this.state.key + '&query=' + this.state.valor)
+                .then(data => data.json())
+                .then(info => {
+                    this.setState({
+                        resultadosPelicula: info.results
+                    })
+                })
+            }
+        })         
+    }
+    
     render() {
         return (
             <React.Fragment>
-                <Form />
-
+               <form onSubmit={(e) => this.evitarSubmit(e)}>
+                    <input type="text" onChange={(e) => this.controlarCambios(e)} placeholder = 'Buscar'/>
+                </form>
+                
+            {this.state.valor.length === 0 ?
+       
+    
+        
+                <React.Fragment>
                 <h1 className="h1"> Más Populares </h1>
                 <section className="contenedor-card">
                     {
@@ -64,7 +84,17 @@ class Home extends Component {
                         <Link className="Link" to='/todas'> Ver Todas </Link>
                     </div>
                 </section>
-
+                </React.Fragment>
+                :
+                <React.Fragment>
+                     <h1 className="h1"> Resultados de busqueda</h1>
+                    <section className="contenedor-card">
+                    {
+                        this.state.resultadosPelicula.map((pelicula, idx) => <PeliculaPopuCard key={pelicula + idx} datosPelicula={pelicula} />)
+                    }
+                    </section>
+               </React.Fragment>
+                }
             </React.Fragment>
         )
     }

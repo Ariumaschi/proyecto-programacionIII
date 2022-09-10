@@ -9,8 +9,12 @@
    flex-direction: row;
    justify-content: space-evenly;
 }
-.form{
+form input {
+   border-radius: 20px;
+   font-size: 25px;
+   border-color: 0px;
    color: antiquewhite;
+
 }
  .h1{
     color: antiquewhite;
