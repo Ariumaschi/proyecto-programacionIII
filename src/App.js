@@ -18,6 +18,7 @@ function App() {
           <Route path='/Favoritos' component={Favoritos} />
           <Route path='/Todas' component={TodasPeliculas} />
           <Route path='/movies/id/:id' component={MovieDetail}/>
+          <Route path='/favoritos' component={Favoritos}/>
           <Route path='' component={ NotFound } />
         </Switch>
       </main>
