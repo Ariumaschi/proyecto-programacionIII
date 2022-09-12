@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom'
 import Home from "./screens/Home/Home";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
-import Favoritos from "./screens/Favoritos/Favoritos";
+import Favoritos from "./components/Favoritos/Favoritos";
 import TodasPeliculas from "./components/Todas/TodasPeliculas"
 import MovieDetail from "./components/MovieDetail/MovieDetail"
 import NotFound from "./screens/NotFound/NotFound";

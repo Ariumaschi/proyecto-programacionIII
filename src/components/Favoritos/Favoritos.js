@@ -30,10 +30,22 @@ class Favoritos extends Component{
         }
     }
 
+    quitarFav(id){
+        console.log(this.state.peliculas)
+        let filtro = this.state.peliculas.filter(unaPeli => unaPeli.id !== id)
+        console.log(filtro)
+
+        this.setState({
+            peliculas: filtro
+        })        
+
+        //Limpiar de localStorage
+    }
+
     render(){
         return(
             <section className="contenedor-card">
-                {this.state.peliculas.map((data, id) => <FavoritosCard key={data + '_' + id} data={data} />)}
+                {this.state.peliculas.map((data, id) => <FavoritosCard key={data + '_' + id} data={data} quitar={(id) => this.quitarFav(id)}/>)}
             </section>
         )
     }
