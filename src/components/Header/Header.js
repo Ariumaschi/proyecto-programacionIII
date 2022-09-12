@@ -7,7 +7,7 @@ function Header() {
     return (
         <section className= "header-padre">
                 
-            <Link to='/' className='MacmuvyLogo'><img src="./img/logo.jpeg" alt="Logo" /></Link>
+            <div className='MacmuvyLogo'><img src="/img/logo.jpeg" alt="Logo" /></div>
             
             <nav className="nav-header">
                 <ul className="main-nav">

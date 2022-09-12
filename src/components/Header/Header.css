@@ -1,8 +1,9 @@
-/*.logo { 
-    border-radius: 50%;
-    width: 70%;
-}*/
 
+.header-padre{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
 .main-nav {
     display: flex;
     flex-wrap: wrap;
@@ -14,4 +15,11 @@
 .main-nav li {
     width: 7%;
     list-style: none;
+}
+
+
+.MacmuvyLogo{
+    border-radius: 50%;
+    width: 30px;
+    height: 20px;
 }
