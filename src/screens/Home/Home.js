@@ -3,6 +3,7 @@ import Billboard from '../../components/Billboard/Billboard';
 import PeliculaPopuCard from '../../components/PeliculaPopuCard/PeliculaPopuCard';
 import './Home.css'
 import { Link } from 'react-router-dom'
+import loadingimg from "../../loadingGif.gif";
 
 class Home extends Component {
     constructor() {
@@ -80,13 +81,16 @@ class Home extends Component {
                 <React.Fragment>
                 <h1 className="h1"> Más Populares </h1>
                 <section className="contenedor-card">
-                    {
+                    {this.state.popularMovies.length === 0 ?
+                                <img src={loadingimg} alt="Cargando..." />
+                                :
                         this.state.popularMovies.map((pelicula, idx) => <PeliculaPopuCard key={pelicula + idx} datosPelicula={pelicula} />)
                     }
-                    <div className="cont-vermas">
+                   
+                </section>
+                <div className="cont-vermas">
                         <Link className="Link" to='/todas'> Ver Todas </Link>
                     </div>
-                </section>
                 <h1 className="h1">En cartelera</h1>
                 <section className="contenedor-card">
                     {
@@ -112,3 +116,4 @@ class Home extends Component {
     }
 }
 export default Home;
+ 
