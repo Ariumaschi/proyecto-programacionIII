@@ -11,9 +11,10 @@ class Home extends Component {
             key: '0e7a6bf53a9c840b66557a6d28ea5004',
             popularMovies: [], //aparecer personajes
             cartelMovies: [],
+            resultadosPelicula: [],
             nextUrl: '',
             valor: '',
-            resultadosPelicula: []
+            añadirSacar: false
         }
     }
     componentDidMount() {
@@ -33,7 +34,21 @@ class Home extends Component {
             }))
             .catch()
 
+        let favoritos = []
+        let storage = JSON.stringify(localStorage.getItem('favoritos'))
+    
+        if (storage !== null) {
+    
+            favoritos = storage
+        
+            if (favoritos.includes()){
+                this.setState({
+                    añadirSacar: true
+                })
+            }
+        }
     }
+
     evitarSubmit(e) {
         e.preventDefault();
     }
@@ -62,9 +77,6 @@ class Home extends Component {
                 </form>
                 
             {this.state.valor.length === 0 ?
-       
-    
-        
                 <React.Fragment>
                 <h1 className="h1"> Más Populares </h1>
                 <section className="contenedor-card">
@@ -90,7 +102,7 @@ class Home extends Component {
                      <h1 className="h1"> Resultados de busqueda</h1>
                     <section className="contenedor-card">
                     {
-                        this.state.resultadosPelicula.map((pelicula, idx) => <PeliculaPopuCard key={pelicula + idx} datosPelicula={pelicula} />)
+                        this.state.resultadosPelicula.map((pelicula, idx) => <PeliculaPopuCard key={pelicula + idx} datosPelicula={pelicula} añadirSacar={this.state.añadirSacar}/>)
                     }
                     </section>
                </React.Fragment>
