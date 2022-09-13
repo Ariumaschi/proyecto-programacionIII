@@ -26,20 +26,21 @@ class Favoritos extends Component{
                     this.setState({
                         peliculas: arrayDeFavoritos
                     })
-                })})
+                })
+            })
         }
     }
 
     quitarFav(id){
-        console.log(this.state.peliculas)
         let filtro = this.state.peliculas.filter(unaPeli => unaPeli.id !== id)
-        console.log(filtro)
-
         this.setState({
             peliculas: filtro
         })        
-
         //Limpiar de localStorage
+        localStorage.clear()
+        let idFiltrados = []
+        filtro.map((pelicula) => idFiltrados.push(pelicula.id))
+        localStorage.setItem('favoritos', JSON.stringify(idFiltrados))
     }
 
     render(){

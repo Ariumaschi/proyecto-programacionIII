@@ -19,7 +19,7 @@ class FavoritosCard extends Component {
     return (
       <article className="pelicula-card">
         <img src={"https://image.tmdb.org/t/p/original/" + this.props.data.poster_path} alt=""/>
-        <h2>{this.props.data.title} ({this.props.data.release_date.slice(0,4)})</h2>
+        <h2>{this.props.data.title} ({this.props.data.release_date.slice(0, 4)})</h2>
         {
         this.state.verMas 
         ? <p>{this.props.data.overview}</p> 

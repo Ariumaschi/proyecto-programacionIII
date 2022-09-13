@@ -13,15 +13,14 @@ class PeliculaPopuCard extends Component {
 
   componentDidMount(){
     let favoritos = JSON.stringify(localStorage.getItem('favoritos'))
-    
+
     if (favoritos !== null) {
-    
-        if (favoritos.includes(this.props.datosPelicula.id)){
-            this.setState({
-                favorito: true
-            })
-        }
+      if (favoritos.includes(this.props.datosPelicula.id)){
+        this.setState({
+            favorito: true
+        })
       }
+    }
   }
 
   masMenosInfo() {
