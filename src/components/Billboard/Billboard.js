@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import "./Billboard.css";
 
 class Billboard extends Component {
@@ -25,7 +26,8 @@ class Billboard extends Component {
         ? <p>{this.props.datosPelicula.overview}</p> 
         : <p>{this.props.datosPelicula.overview.slice(0, 100)} [...]</p>
         }
-        <a onClick={() => this.masMenosInfo()} href=''> {this.state.verMas ? "Ver menos" : "Ver mas"} </a>
+        <Link onClick={() => this.masMenosInfo()} href=''> {this.state.verMas ? "Ver menos" : "Ver mas"} </Link>
+        <Link  to={`/movies/id/${this.props.datosPelicula.id}`}> Detalle </Link>
       </article>
     );
   }

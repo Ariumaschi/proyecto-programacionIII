@@ -5,9 +5,9 @@ import "./Header.css";
 function Header() {
 
     return (
-        <section className= "header-padre">
+        <header className= "header-padre">
                 
-            <div className='MacmuvyLogo'><img src="/img/logo.jpeg" alt="Logo" /></div>
+            <div ><img className='MacmuvyLogo' src="/img/logo.jpeg" alt="Logo" /></div>
             
             <nav className="nav-header">
                 <ul className="main-nav">
@@ -20,11 +20,11 @@ function Header() {
                     </li>
 
                     <li>
-                        <Link className="Link" to='/todas'> Ver Todas </Link>
+                        <Link className="Link" to='/todas'> Todas </Link>
                     </li>
                 </ul>
             </nav>
-        </section>
+        </header>
     )
 }
 

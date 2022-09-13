@@ -1,14 +1,14 @@
-.footer {
-    display: flex;
-    padding-top: 5px;
-    background-color: white;
-    align-items: center;
+footer {
+
+    text-align: center;
+    width: 100%;
+    height: 100px;
+    border-top: solid 7px white;
+
 }
 
 .nombres {
-    text-transform: uppercase;
-    padding: 5px;
-    font-size: 20px;
     color: white;
     text-align: center;
+    font-size: 30px;
 }

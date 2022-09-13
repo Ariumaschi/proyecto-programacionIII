@@ -4,7 +4,8 @@ import "./Footer.css";
 function Footer() {
     return (
         <footer className="footer">
-            <h2 className="nombres">Ariana Umaschi, Mateo Vallejo, Clara Ottonello</h2>
+            <p className="nombres">
+                Ariana Umaschi, Mateo Vallejo, Clara Ottonello</p>
         </footer>
     )
 }

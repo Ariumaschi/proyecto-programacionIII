@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-import './TodasPeliculas.css'
+import './TodasPeliculas.css';
+import { Link } from 'react-router-dom';
+
 
 class TodasPeliculasCard extends Component {
   constructor(props) {
@@ -25,7 +27,8 @@ class TodasPeliculasCard extends Component {
         ? <p>{this.props.datosPelicula.overview}</p> 
         : <p>{this.props.datosPelicula.overview.slice(0, 100)} [...]</p>
         }
-        <a onClick={() => this.masMenosInfo()}> {this.state.verMas ? "Ver menos" : "Ver mas"} </a>
+        <Link onClick={() => this.masMenosInfo()}> {this.state.verMas ? "Ver menos" : "Ver mas"} </Link>
+        <Link  to={`/movies/id/${this.props.datosPelicula.id}`}> Detalle </Link>
       </article>
     );
   }

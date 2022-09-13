@@ -1,25 +1,43 @@
-
-.header-padre{
+.header-padre {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
+    height: 200px;
+    align-items: center;
+    border-bottom: solid 7px white;
+
 }
+
 .main-nav {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    justify-content: space-evenly;
-    list-style: none;
+    justify-content:flex-end;
+    width: 700px;
+    align-items: center;
+
 }
 
 .main-nav li {
-    width: 7%;
+    width: 200px;
     list-style: none;
+    font-size: 40px;
 }
 
 
-.MacmuvyLogo{
-    border-radius: 50%;
-    width: 30px;
-    height: 20px;
+
+.MacmuvyLogo {
+    max-width: 200px;
+    max-height: 180px;
+    padding-left: 100px;
+
+}
+
+.Link {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.Link:hover {
+    color: rgb(82, 79, 79);
 }

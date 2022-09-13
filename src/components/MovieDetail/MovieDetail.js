@@ -7,7 +7,9 @@ class MovieDetail extends Component {
         super(props);
         this.state = {
             id: (props.match.params.id),
-            movieData: {},
+            movieData: {
+                genres:[]
+            },
             añadirSacar: false
         }
     };
@@ -79,9 +81,17 @@ class MovieDetail extends Component {
 
                     <p className='dataDetail'>Fecha de estreno: {this.state.movieData.release_date}</p>
 
-                    <p className='dataDetail'>{this.state.movieData.overview}</p>
-                    <p className='dataDetail' onClick={() => this.añadirFav(this.state.movieData.id)}>{this.state.añadirSacar ? '<3' : '</3'}</p>
+                    <p className='dataDetail'>Sinopsis: {this.state.movieData.overview}</p>
+
+                    <ul className='dataDetail'>
+                        Generos:
+                        {
+                            this.state.movieData.genres.map((Genero) => <li className='genero'>{Genero.name}</li>)
+                        }
+                    </ul>
+                   <p className='fav' onClick={() => this.añadirFav(this.state.movieData.id)}>{this.state.añadirSacar ? '<3' : '</3'}</p>
                 </section>
+                
             </article>
         )
     }
