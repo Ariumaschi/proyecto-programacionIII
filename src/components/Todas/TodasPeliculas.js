@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import TodasPeliculasCard from './TodasPeliculasCard'
+import TodasPeliculasCard from './TodasPeliculasCard';
+import loadingimg from "../../loadingGif.gif";
 import './TodasPeliculas.css'
 
 class TodasPeliculas extends Component{
@@ -7,8 +8,10 @@ class TodasPeliculas extends Component{
         super()
         this.state = {
            peliculas:[], //aparecer personajes
-           nextUrl:'',
-           page: 2
+           nextUrl:'',   
+           pelis2: [],
+           valor: '',
+            siguientePag: ''   
         }
     }
 
@@ -35,18 +38,45 @@ class TodasPeliculas extends Component{
             ))
         .catch()
     }
+    //FILTRO
 
+    evitarSubmit(e) {
+        e.preventDefault();
+    }
+    controlarCambios(e) {
+        this.setState({
+          valor: e.target.value,},
+           () => {  
+            if (e.target.value !== ''){
+         let result = this.state.peliculas.filter((unaPelicula) => {
+          return unaPelicula.title.toLowerCase().includes(e.target.value)
+        }) 
+    console.log(result);
+    this.setState({pelis2: result})/* ,() => console.log(this.state.data2))  */ 
+    }
+
+        }
+        )
+      }
     render(){
         return(
             <React.Fragment >
-                <section className="contenedor-card">
-                    {
-                        this.state.peliculas.map((pelicula, idx) => <TodasPeliculasCard key={pelicula + idx} datosPelicula={pelicula} />)
-                    }  
-                </section>
+
+                <form onSubmit={(e) => this.evitarSubmit(e)}>
+                    <input type="text" onChange={(e) => this.controlarCambios(e)} placeholder = '    Buscar..'/>
+                </form>
+                
+            <section className="contenedor-card">
+        {this.state.peliculas.length === 0 ?
+            <img src={loadingimg} alt="Cargando..." />
+              :
+             this.state.peliculas.map((pelicula, idx) => <TodasPeliculasCard key={pelicula + idx} datosPelicula={pelicula} />)
+             }  
+            </section>
                 <div className="cont-vermas">
                 <button onClick={() => this.verMas()} className="vermaspelis">Ver Más</button>
                 </div>
+        <section/>
             </React.Fragment>
         )
     }

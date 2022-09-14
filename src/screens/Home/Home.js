@@ -73,10 +73,11 @@ class Home extends Component {
     render() {
         return (
             <React.Fragment>
+               
                <form onSubmit={(e) => this.evitarSubmit(e)}>
-                    <input type="text" onChange={(e) => this.controlarCambios(e)} placeholder = 'Buscar'/>
+                    <input type="text" onChange={(e) => this.controlarCambios(e)} placeholder = '    Buscar..'/>
                 </form>
-                
+               
             {this.state.valor.length === 0 ?
                 <React.Fragment>
                 <h1 className="h1"> Más Populares </h1>

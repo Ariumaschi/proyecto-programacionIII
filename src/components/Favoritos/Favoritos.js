@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import FavoritosCard from './FavoritosCard';
+import loadingimg from "../../loadingGif.gif";
 
 class Favoritos extends Component{
     constructor() {
@@ -46,7 +47,10 @@ class Favoritos extends Component{
     render(){
         return(
             <section className="contenedor-card">
-                {this.state.peliculas.map((data, id) => <FavoritosCard key={data + '_' + id} data={data} quitar={(id) => this.quitarFav(id)}/>)}
+                {this.state.peliculas.length === 0 ?
+                                <img src={loadingimg} alt="Cargando..." />
+                                :
+                this.state.peliculas.map((data, id) => <FavoritosCard key={data + '_' + id} data={data} quitar={(id) => this.quitarFav(id)}/>)}
             </section>
         )
     }
