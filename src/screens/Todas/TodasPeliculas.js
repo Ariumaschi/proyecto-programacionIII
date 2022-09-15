@@ -11,7 +11,7 @@ class TodasPeliculas extends Component{
            nextUrl:'',   
            pelis2: [],
            valor: '',
-            siguientePag: ''   
+           page: 2   
         }
     }
 

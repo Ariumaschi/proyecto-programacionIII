@@ -6,14 +6,54 @@ class TodasPeliculasCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        verMas: false
+        verMas: false,
+        favorito: false
     };
+  }
+
+  componentDidMount(){
+    let favoritos = JSON.stringify(localStorage.getItem('favoritos'))
+
+    if (favoritos !== null) {
+      if (favoritos.includes(this.props.datosPelicula.id)){
+        this.setState({
+            favorito: true
+        })
+      }
+    }
   }
 
   masMenosInfo() {
     this.setState({
       verMas: !this.state.verMas
     });
+  }
+
+  añadirSacar(id) {
+
+    let favoritos = []
+    let favStorage = localStorage.getItem('favoritos')
+
+    if (favStorage !== null) {
+        let storage = JSON.parse(favStorage)
+        favoritos = storage
+    }
+
+    if (favoritos.includes(id)) {
+        favoritos = favoritos.filter(ID => ID !== id)
+        this.setState({
+            favorito: false
+        })
+    } else {
+        favoritos.push(id)
+        this.setState({
+            favorito: true
+        })
+    }
+
+    let favsToString = JSON.stringify(favoritos)
+    localStorage.setItem('favoritos', favsToString)
+    console.log(localStorage);
   }
 
   render() {
@@ -29,6 +69,12 @@ class TodasPeliculasCard extends Component {
         }
         <Link onClick={() => this.masMenosInfo()}> {this.state.verMas ? "Ver menos" : "Ver mas"} </Link>
         <Link  to={`/movies/id/${this.props.datosPelicula.id}`}> Detalle </Link>
+        {
+          this.state.favorito ?
+          <button onClick={() => this.añadirSacar(this.props.datosPelicula.id)}>Sacar</button>
+          :
+          <button onClick={() => this.añadirSacar(this.props.datosPelicula.id)}>Agregar</button>
+        }
       </article>
     );
   }
