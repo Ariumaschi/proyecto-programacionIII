@@ -52,7 +52,9 @@ class TodasPeliculas extends Component{
           return unaPelicula.title.toLowerCase().includes(e.target.value)
         }) 
     console.log(result);
-    this.setState({pelis2: result})/* ,() => console.log(this.state.data2))  */ 
+    this.setState({pelis2: result}, () => console.log(this.state.data2))
+    } else {
+        this.setState({data2: ''})
     }
 
         }
@@ -60,24 +62,40 @@ class TodasPeliculas extends Component{
       }
     render(){
         return(
-            <React.Fragment >
+    <React.Fragment >
 
                 <form onSubmit={(e) => this.evitarSubmit(e)}>
                     <input type="text" onChange={(e) => this.controlarCambios(e)} placeholder = '    Buscar..'/>
                 </form>
-                
-            <section className="contenedor-card">
-        {this.state.peliculas.length === 0 ?
-            <img src={loadingimg} alt="Cargando..." />
-              :
-             this.state.peliculas.map((pelicula, idx) => <TodasPeliculasCard key={pelicula + idx} datosPelicula={pelicula} />)
+
+        {this.state.valor.length === 0 ?
+            
+        <React.Fragment>
+
+        <section className="contenedor-card">
+             {this.state.peliculas.length === 0 ?
+                <img src={loadingimg} alt="Cargando..." />
+            :
+                 this.state.peliculas.map((pelicula, idx) => <TodasPeliculasCard key={pelicula + idx} datosPelicula={pelicula} />)
              }  
-            </section>
-                <div className="cont-vermas">
-                <button onClick={() => this.verMas()} className="vermaspelis">Ver Más</button>
-                </div>
-        <section/>
-            </React.Fragment>
+        </section>
+
+        <div className="cont-vermas">
+            <button onClick={() => this.verMas()} className="vermaspelis">Ver Más</button>
+        </div>
+ 
+        </React.Fragment>
+        :
+        <React.Fragment>
+            <h1 className="h1"> Resultados de busqueda</h1>
+                    <section className="contenedor-card">
+                    {
+                          this.state.pelis2.map((pelicula, idx) => <TodasPeliculasCard key={pelicula + idx} datosPelicula={pelicula} />)
+                        }
+                    </section>
+        </React.Fragment>
+                }
+    </React.Fragment>
         )
     }
 }
