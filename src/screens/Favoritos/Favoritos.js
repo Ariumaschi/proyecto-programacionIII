@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
-import FavoritosCard from './FavoritosCard';
+import FavoritosCard from '../../components/Favoritos/FavoritosCard';
 import loadingimg from "../../loadingGif.gif";
+import './Favoritos.css';
+
 
 class Favoritos extends Component{
     constructor() {
@@ -46,13 +48,21 @@ class Favoritos extends Component{
 
     render(){
         return(
+         <React.Fragment>
+            {this.state.peliculas.length === 0 ?
+
+                <h1 className='noHayFav'>No hay favoritos</h1>
+                :
             <section className="contenedor-card">
                 {this.state.peliculas.length === 0 ?
                                 <img src={loadingimg} alt="Cargando..." />
                                 :
                 this.state.peliculas.map((data, id) => <FavoritosCard key={data + '_' + id} data={data} quitar={(id) => this.quitarFav(id)}/>)}
             </section>
+
+        } </React.Fragment>   
         )
+       
     }
 }
 

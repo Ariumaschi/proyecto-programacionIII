@@ -5,8 +5,15 @@
     justify-content: space-evenly;
  }
  .form{
-    color: antiquewhite;
+    color: white;
  }
   .h1{
-     color: antiquewhite;
+     color: white;
+  }
+
+  h1.noHayFav {
+   color: white;
+   text-align: center;
+   font-size: 50px;
+   margin: 10%;
   }

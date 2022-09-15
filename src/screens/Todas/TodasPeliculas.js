@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import TodasPeliculasCard from './TodasPeliculasCard';
+import TodasPeliculasCard from '../../components/TodasPeliculasCard/TodasPeliculasCard';
 import loadingimg from "../../loadingGif.gif";
 import './TodasPeliculas.css'
 

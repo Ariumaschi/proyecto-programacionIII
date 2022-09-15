@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import './TodasPeliculas.css';
 import { Link } from 'react-router-dom';
 
 
@@ -19,6 +18,7 @@ class TodasPeliculasCard extends Component {
 
   render() {
     return (
+
       <article className="pelicula-card">
         <img src={"https://image.tmdb.org/t/p/original/" + this.props.datosPelicula.poster_path} alt=""/>
         <h2>{this.props.datosPelicula.title} ({this.props.datosPelicula.release_date.slice(0,4)})</h2>
