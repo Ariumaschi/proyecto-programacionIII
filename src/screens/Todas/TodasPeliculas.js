@@ -7,6 +7,7 @@ class TodasPeliculas extends Component{
     constructor(){
         super()
         this.state = {
+            key: '0e7a6bf53a9c840b66557a6d28ea5004',
            peliculas:[], //aparecer personajes
            nextUrl:'',   
            pelis2: [],
@@ -17,20 +18,37 @@ class TodasPeliculas extends Component{
 
     componentDidMount(){
         //BUscamos datos
-        fetch('https://api.themoviedb.org/3/movie/popular?api_key=0e7a6bf53a9c840b66557a6d28ea5004&language=en-US&page=1')
+        fetch('https://api.themoviedb.org/3/movie/popular?api_key='+ this.state.key )
         .then( res => res.json())
         .then( data => this.setState({
                 peliculas: data.results
             },() => console.log(this.state.peliculas)
             ))
         .catch()
+
+        fetch('https://api.themoviedb.org/3/movie/now_playing?api_key=' + this.state.key)
+        .then( res => res.json())
+        .then( data => this.setState({
+                peliculas: data.results
+            },() => console.log(this.state.peliculas)
+            ))
+        .catch()
+       
     }
 
     verMas(){
         this.setState({
             page: this.state.page + 1
         })
-        fetch('https://api.themoviedb.org/3/movie/popular?api_key=0e7a6bf53a9c840b66557a6d28ea5004&language=en-US&page=' + this.state.page)
+        fetch('https://api.themoviedb.org/3/movie/popular?api_key='+ this.state.key  + this.state.page)
+        .then( res => res.json())
+        .then( data => this.setState({
+                peliculas: this.state.peliculas.concat(data.results)
+            },() => console.log(this.state.peliculas)
+            ))
+        .catch()
+
+        fetch('https://api.themoviedb.org/3/movie/now_playing?api_key=' + this.state.key + this.state.page)
         .then( res => res.json())
         .then( data => this.setState({
                 peliculas: this.state.peliculas.concat(data.results)
@@ -51,7 +69,7 @@ class TodasPeliculas extends Component{
          let result = this.state.peliculas.filter((unaPelicula) => {
           return unaPelicula.title.toLowerCase().includes(e.target.value)
         }) 
-    console.log(result);
+         console.log(result);
     this.setState({pelis2: result}, () => console.log(this.state.data2))
     } else {
         this.setState({data2: ''})

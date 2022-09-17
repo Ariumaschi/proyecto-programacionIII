@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Billboard from '../../components/Billboard/Billboard';
 import PeliculaPopuCard from '../../components/PeliculaPopuCard/PeliculaPopuCard';
 import './Home.css'
 import { Link } from 'react-router-dom'
@@ -95,7 +94,7 @@ class Home extends Component {
                 <h1 className="h1">En cartelera</h1>
                 <section className="contenedor-card">
                     {
-                        this.state.cartelMovies.map((cartelMovie, idx) => <Billboard key={cartelMovie + idx} datosPelicula={cartelMovie} />)
+                        this.state.cartelMovies.map((pelicula, idx) => <PeliculaPopuCard key={pelicula + idx} datosPelicula={pelicula} />)
                     }
                     <div className="cont-vermas">
                         <Link className="Link" to='/todas'> Ver Todas </Link>
@@ -105,6 +104,7 @@ class Home extends Component {
                 :
                 <React.Fragment>
                      <h1 className="h1"> Resultados de busqueda</h1>
+                     
                     <section className="contenedor-card">
                     {
                         this.state.resultadosPelicula.map((pelicula, idx) => <PeliculaPopuCard key={pelicula + idx} datosPelicula={pelicula} añadirSacar={this.state.añadirSacar}/>)

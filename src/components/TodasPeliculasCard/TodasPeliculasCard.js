@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
+import '../PeliculaPopuCard/PeliculaPopuCard.css';
 
 
 class TodasPeliculasCard extends Component {
@@ -71,9 +72,9 @@ class TodasPeliculasCard extends Component {
         <Link  to={`/movies/id/${this.props.datosPelicula.id}`}> Detalle </Link>
         {
           this.state.favorito ?
-          <button onClick={() => this.añadirSacar(this.props.datosPelicula.id)}>Sacar</button>
+          <button className="agregarSacar" onClick={() => this.añadirSacar(this.props.datosPelicula.id)}>Sacar</button>
           :
-          <button onClick={() => this.añadirSacar(this.props.datosPelicula.id)}>Agregar</button>
+          <button className="agregarSacar" onClick={() => this.añadirSacar(this.props.datosPelicula.id)}>Agregar</button>
         }
       </article>
     );

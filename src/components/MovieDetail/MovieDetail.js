@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './MovieDetail.css';
-
+import loadingimg from "../../loadingGif.gif";
 class MovieDetail extends Component {
 
     constructor(props) {
@@ -68,7 +68,10 @@ class MovieDetail extends Component {
 
     render() {
         return (
-
+            <>
+            {this.state.movieData.genres.length === 0 ?
+                <img src={loadingimg} alt="Cargando..." />
+                :
             <article className='detailArticle'>
                 <h1 className='movieDetail'>Detalle de pelicula: {this.state.movieData.title} </h1>
                 <div>
@@ -93,6 +96,8 @@ class MovieDetail extends Component {
                 </section>
                 
             </article>
+            }
+        </>
         )
     }
 

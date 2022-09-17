@@ -18,7 +18,9 @@
     text-align: justify;
     padding: 20px;
 }
-
+img{
+    text-align: center;
+}
 .dataDetail{
     color: white;
     text-align: justify;
