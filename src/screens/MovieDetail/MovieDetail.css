@@ -1,40 +1,55 @@
-.detailArticle{
+.detailArticle {
     display: flex;
     flex-direction: column;
     background-color: black;
     align-items: center;
 }
-.movieDetail{
+
+.movieDetail {
     color: white;
     text-align: left;
     font-size: 30px;
 }
 
 .data {
+    display: flex;
+    flex-direction: column;
     border: solid 2px white;
     color: white;
     width: 60%;
     margin: 30px;
-    text-align: justify;
     padding: 20px;
+    text-align: center;
+
 }
-img{
+
+img {
     text-align: center;
 }
-.dataDetail{
+
+.dataDetail {
     color: white;
-    text-align: justify;
     font-size: 20px;
+    font-weight: bold;
 }
 
 .genero {
     list-style: none;
     display: inline;
-    padding-left:3px;
-    padding-right:3px;
+    padding-left: 3px;
+    padding-right: 3px;
 
 }
 
-.fav {
-    font-size: 40px;
+button.agregarSacar {
+    font-size: 30px;
+    border: 2px solid white;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 20%;
+}
+
+.agregarSacar:hover {
+    background-color: #008CBA;
+    color: white;
 }

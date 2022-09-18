@@ -8,7 +8,7 @@ class MovieDetail extends Component {
         this.state = {
             id: (props.match.params.id),
             movieData: {
-                genres:[]
+                genres: []
             },
             añadirSacar: false
         }
@@ -69,35 +69,35 @@ class MovieDetail extends Component {
     render() {
         return (
             <>
-            {this.state.movieData.genres.length === 0 ?
-                <img src={loadingimg} alt="Cargando..." />
-                :
-            <article className='detailArticle'>
-                <h1 className='movieDetail'>Detalle de pelicula: {this.state.movieData.title} </h1>
-                <div>
-                    <img className='imgDetail' src={`https://image.tmdb.org/t/p/w342/${this.state.movieData.poster_path}`} alt='Imagen' />
-                </div>
+                {this.state.movieData.genres.length === 0 ?
+                    <img src={loadingimg} alt="Cargando..." />
+                    :
+                    <article className='detailArticle'>
+                        <h1 className='movieDetail'>Detalle de pelicula: {this.state.movieData.title} </h1>
+                        <div>
+                            <img className='imgDetail' src={`https://image.tmdb.org/t/p/w342/${this.state.movieData.poster_path}`} alt='Imagen' />
+                        </div>
 
-                <section className='data'>
+                        <section className='data'>
 
-                    <p className='dataDetail'>Rating: {this.state.movieData.popularity}</p>
+                            <p className='dataDetail'>Rating: {this.state.movieData.popularity}</p>
 
-                    <p className='dataDetail'>Fecha de estreno: {this.state.movieData.release_date}</p>
+                            <p className='dataDetail'>Fecha de estreno: {this.state.movieData.release_date}</p>
 
-                    <p className='dataDetail'>Sinopsis: {this.state.movieData.overview}</p>
+                            <p className='dataDetail'>Sinopsis: {this.state.movieData.overview}</p>
 
-                    <ul className='dataDetail'>
-                        Generos:
-                        {
-                            this.state.movieData.genres.map((Genero) => <li className='genero'>{Genero.name}</li>)
-                        }
-                    </ul>
-                   <p className='fav' onClick={() => this.añadirFav(this.state.movieData.id)}>{this.state.añadirSacar ? '<3' : '</3'}</p>
-                </section>
-                
-            </article>
-            }
-        </>
+                            <ul className='dataDetail'>
+                                Generos:
+                                {
+                                    this.state.movieData.genres.map((Genero) => <li className='genero'>{Genero.name}</li>)
+                                }
+                            </ul>
+                            <button className="agregarSacar" onClick={() => this.añadirFav(this.state.movieData.id)}>{this.state.añadirSacar ? 'Sacar' : 'Agregar'}</button>
+                        </section>
+
+                    </article>
+                }
+            </>
         )
     }
 

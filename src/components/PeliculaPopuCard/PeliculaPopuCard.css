@@ -25,4 +25,6 @@ box-shadow: 0rem 0rem 10px 8px rgb(255 255 255 / 25%);
 }
 .agregarSacar{
     color: white;
+    font-size: 3px;
+    width: 80%;
 }
