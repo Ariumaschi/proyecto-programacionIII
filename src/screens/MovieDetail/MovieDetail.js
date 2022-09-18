@@ -24,46 +24,32 @@ class MovieDetail extends Component {
             ))
             .catch(error => console.log('El error fue: ' + error))
 
-        let favoritos = []
         let storage = JSON.stringify(localStorage.getItem('favoritos'))
 
-        if (storage !== null) {
-
-            favoritos = storage
-
-            if (favoritos.includes(this.state.id)) {
-                this.setState({
-                    añadirSacar: true
-                })
-            }
+        if (storage.includes(this.state.id)) {
+            this.setState({
+                añadirSacar: true
+            })
         }
     }
 
     añadirFav(id) {
 
-        let favoritos = []
-        let favStorage = localStorage.getItem('favoritos')
+        let storage = JSON.parse(localStorage.getItem('favoritos'))
 
-        if (favStorage !== null) {
-            let storage = JSON.parse(favStorage)
-            favoritos = storage
-        }
-
-        if (favoritos.includes(id)) {
-            favoritos = favoritos.filter(ID => ID !== id)
+        if (storage.includes(id)) {
+            storage = storage.filter(ID => ID !== id)
             this.setState({
-                añadirSacar: false
+                favorito: false
             })
         } else {
-            favoritos.push(id)
+            storage.push(id)
             this.setState({
-                añadirSacar: true
+                favorito: true
             })
         }
-
-        let favsToString = JSON.stringify(favoritos)
-        localStorage.setItem('favoritos', favsToString)
-        console.log(localStorage);
+    
+        localStorage.setItem('favoritos', JSON.stringify(storage))
     }
 
     render() {

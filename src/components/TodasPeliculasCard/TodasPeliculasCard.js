@@ -31,30 +31,21 @@ class TodasPeliculasCard extends Component {
   }
 
   añadirSacar(id) {
+    let storage = JSON.parse(localStorage.getItem('favoritos'))
 
-    let favoritos = []
-    let favStorage = localStorage.getItem('favoritos')
-
-    if (favStorage !== null) {
-        let storage = JSON.parse(favStorage)
-        favoritos = storage
-    }
-
-    if (favoritos.includes(id)) {
-        favoritos = favoritos.filter(ID => ID !== id)
+    if (storage.includes(id)) {
+        storage = storage.filter(ID => ID !== id)
         this.setState({
             favorito: false
         })
     } else {
-        favoritos.push(id)
+        storage.push(id)
         this.setState({
             favorito: true
         })
     }
-
-    let favsToString = JSON.stringify(favoritos)
-    localStorage.setItem('favoritos', favsToString)
-    console.log(localStorage);
+    
+    localStorage.setItem('favoritos', JSON.stringify(storage))
   }
 
   render() {
