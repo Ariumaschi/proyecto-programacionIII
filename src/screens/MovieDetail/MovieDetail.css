@@ -41,12 +41,9 @@ img {
 
 }
 
-button.agregarSacar {
-    font-size: 30px;
-    border: 2px solid white;
-    border-radius: 6px;
-    cursor: pointer;
-    width: 20%;
+.agregarSacar {
+   color: white;
+   font-size: medium;
 }
 
 .agregarSacar:hover {

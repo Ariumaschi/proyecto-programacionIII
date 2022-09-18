@@ -74,7 +74,7 @@ class Home extends Component {
             <React.Fragment>
 
                 <form onSubmit={(e) => this.evitarSubmit(e)}>
-                    <input type="text" onChange={(e) => this.controlarCambios(e)} placeholder='    Buscar..' />
+                    <input type="text" onChange={(e) => this.controlarCambios(e)} placeholder='    Buscar..' value={this.state.value}/>
                 </form>
 
                 {this.state.valor.length === 0 ?

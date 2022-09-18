@@ -23,8 +23,13 @@ box-shadow: 0rem 0rem 10px 8px rgb(255 255 255 / 25%);
     margin: 3%;
     color: white
 }
-.agregarSacar{
-    color: white;
-    font-size: 3px;
-    width: 80%;
+.pelicula-card button{
+    color: rgb(255, 255, 255);
+    margin: 3%;
+    font-size: small;
+    border: 2px solid white;
+    cursor: pointer;
+    
+    
+    
 }

@@ -69,13 +69,13 @@ class HomePeliculaCard extends Component {
         }
        <div> <Link onClick={() => this.masMenosInfo()} to='#'> {this.state.verMas ? "Ver menos" : "Ver mas"} </Link>
         <Link  to={`/movies/id/${this.props.datosPelicula.id}`}> Detalle </Link>
-        </div>
+      
         { 
           this.state.favorito ?
           <button className="agregarSacar" onClick={() => this.añadirSacar(this.props.datosPelicula.id)}>Sacar</button>
           :
           <button className="agregarSacar" onClick={() => this.añadirSacar(this.props.datosPelicula.id)}>Agregar</button>
-        }
+        }    </div>
       </article>
     );
   }
