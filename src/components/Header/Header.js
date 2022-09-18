@@ -7,10 +7,10 @@ function Header() {
     return (
         <header className= "header-padre">
                 
-            <div ><img className='MacmuvyLogo' src="/img/logo.jpeg" alt="Logo" /></div>
+            <div ><img className='MacmuvyLogo'src="/img/logo.jpeg" alt="Logo" /></div>
             
             <nav className="nav-header">
-                <ul className="main-nav">
+                <ul className="ul-nav">
                     <li>
                         <Link className="Link" to='/'> Home </Link>
                     </li>
