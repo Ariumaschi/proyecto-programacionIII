@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PeliculaPopuCard from '../../components/PeliculaPopuCard/PeliculaPopuCard';
+import HomePeliculaCard from '../../components/HomePeliculaCard/HomePeliculaCard';
 import './Home.css'
 import { Link } from 'react-router-dom'
 import loadingimg from "../../loadingGif.gif";
@@ -36,12 +36,12 @@ class Home extends Component {
 
         let favoritos = []
         let storage = JSON.stringify(localStorage.getItem('favoritos'))
-    
+
         if (storage !== null) {
-    
+
             favoritos = storage
-        
-            if (favoritos.includes()){
+
+            if (favoritos.includes()) {
                 this.setState({
                     añadirSacar: true
                 })
@@ -54,67 +54,66 @@ class Home extends Component {
     }
 
     controlarCambios(e) {
-          this.setState({
+        this.setState({
             valor: e.target.value,
         }, () => {
-            if(e.target.value.length !== 0){
-            fetch('https://api.themoviedb.org/3/search/movie?api_key=' + this.state.key + '&query=' + this.state.valor)
-                .then(data => data.json())
-                .then(info => {
-                    this.setState({
-                        resultadosPelicula: info.results
+            if (e.target.value.length !== 0) {
+                fetch('https://api.themoviedb.org/3/search/movie?api_key=' + this.state.key + '&query=' + this.state.valor)
+                    .then(data => data.json())
+                    .then(info => {
+                        this.setState({
+                            resultadosPelicula: info.results
+                        })
                     })
-                })
             }
-        })         
+        })
     }
-    
+
     render() {
         return (
             <React.Fragment>
-               
-               <form onSubmit={(e) => this.evitarSubmit(e)}>
-                    <input type="text" onChange={(e) => this.controlarCambios(e)} placeholder = '    Buscar..'/>
+
+                <form onSubmit={(e) => this.evitarSubmit(e)}>
+                    <input type="text" onChange={(e) => this.controlarCambios(e)} placeholder='    Buscar..' />
                 </form>
-               
-            {this.state.valor.length === 0 ?
-                <React.Fragment>
-                <h1 className="h1"> Más Populares </h1>
-                <section className="contenedor-card">
-                    {this.state.popularMovies.length === 0 ?
+
+                {this.state.valor.length === 0 ?
+                    <React.Fragment>
+                        <h1 className="h1"> Más Populares </h1>
+                        <section className="contenedor-card">
+                            {this.state.popularMovies.length === 0 ?
                                 <img src={loadingimg} alt="Cargando..." />
                                 :
-                        this.state.popularMovies.map((pelicula, idx) => <PeliculaPopuCard key={pelicula + idx} datosPelicula={pelicula} />)
-                    }
-                   
-                </section>
-                <div className="cont-vermas">
-                        <Link className="Link" to='/todas'> Ver Todas </Link>
-                    </div>
-                <h1 className="h1">En cartelera</h1>
-                <section className="contenedor-card">
-                    {
-                        this.state.cartelMovies.map((pelicula, idx) => <PeliculaPopuCard key={pelicula + idx} datosPelicula={pelicula} />)
-                    }
-                    <div className="cont-vermas">
-                        <Link className="Link" to='/todas'> Ver Todas </Link>
-                    </div>
-                </section>
-                </React.Fragment>
-                :
-                <React.Fragment>
-                     <h1 className="h1"> Resultados de busqueda</h1>
-                     
-                    <section className="contenedor-card">
-                    {
-                        this.state.resultadosPelicula.map((pelicula, idx) => <PeliculaPopuCard key={pelicula + idx} datosPelicula={pelicula} añadirSacar={this.state.añadirSacar}/>)
-                    }
-                    </section>
-               </React.Fragment>
+                                this.state.popularMovies.map((pelicula, idx) => <HomePeliculaCard key={pelicula + idx} datosPelicula={pelicula} />)
+                            }
+
+                        </section>
+                        <div className="cont-vermas">
+                            <Link className="Link" to='/todas'> Ver Todas </Link>
+                        </div>
+                        <h1 className="h1">En cartelera</h1>
+                        <section className="contenedor-card">
+                            {
+                                this.state.cartelMovies.map((pelicula, idx) => <HomePeliculaCard key={pelicula + idx} datosPelicula={pelicula} />)
+                            }
+                            <div className="cont-vermas">
+                                <Link className="Link" to='/todas'> Ver Todas </Link>
+                            </div>
+                        </section>
+                    </React.Fragment>
+                    :
+                    <React.Fragment>
+                        <h1 className="h1"> Resultados de busqueda</h1>
+
+                        <section className="contenedor-card">
+                            {
+                                this.state.resultadosPelicula.map((pelicula, idx) => <HomePeliculaCard key={pelicula + idx} datosPelicula={pelicula} añadirSacar={this.state.añadirSacar} />)
+                            }
+                        </section>
+                    </React.Fragment>
                 }
             </React.Fragment>
         )
     }
 }
 export default Home;
- 

@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import "./PeliculaPopuCard.css";
+import "./HomePeliculaCard.css";
 import { Link } from 'react-router-dom'
 
 
-class PeliculaPopuCard extends Component {
+class HomePeliculaCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -81,4 +81,4 @@ class PeliculaPopuCard extends Component {
   }
 }
 
-export default PeliculaPopuCard;
+export default HomePeliculaCard;

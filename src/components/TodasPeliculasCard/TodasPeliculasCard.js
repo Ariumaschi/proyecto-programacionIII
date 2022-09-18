@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
-import '../PeliculaPopuCard/PeliculaPopuCard.css';
+import '../HomePeliculaCard/HomePeliculaCard.css';
 
 
 class TodasPeliculasCard extends Component {
