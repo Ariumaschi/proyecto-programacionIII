@@ -8,18 +8,16 @@ class Home extends Component {
     constructor() {
         super()
         this.state = {
-            key: '0e7a6bf53a9c840b66557a6d28ea5004',
             popularMovies: [], //aparecer personajes
             cartelMovies: [],
             resultadosPelicula: [],
-            nextUrl: '',
             valor: '',
             añadirSacar: false
         }
     }
     componentDidMount() {
         //Buscamos datos
-        fetch('https://api.themoviedb.org/3/movie/popular?api_key=' + this.state.key)
+        fetch('https://api.themoviedb.org/3/movie/popular?api_key=0e7a6bf53a9c840b66557a6d28ea5004')
             .then(res => res.json())
             .then(data => this.setState({
                 popularMovies: data.results
@@ -27,7 +25,7 @@ class Home extends Component {
             ))
             .catch()
 
-        fetch('https://api.themoviedb.org/3/movie/now_playing?api_key=' + this.state.key)
+        fetch('https://api.themoviedb.org/3/movie/now_playing?api_key=0e7a6bf53a9c840b66557a6d28ea5004')
             .then(res => res.json())
             .then(data => this.setState({
                 cartelMovies: data.results

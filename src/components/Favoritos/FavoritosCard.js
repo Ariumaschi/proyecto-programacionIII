@@ -27,7 +27,7 @@ class FavoritosCard extends Component {
         }
         <Link onClick={() => this.masMenosInfo()}>{this.state.verMas ? "Ver menos" : "Ver mas"} </Link>
         <Link  to={`/movies/id/${this.props.data.id}`}> Detalle </Link>
-        <button onClick={() => this.props.quitar(this.props.data.id)}>X</button>
+        <button onClick={() => this.props.quitar(this.props.data.id)}>Sacar</button>
       </article>
     );
   }

@@ -7,9 +7,7 @@ class TodasPeliculas extends Component{
     constructor(){
         super()
         this.state = {
-            key: '0e7a6bf53a9c840b66557a6d28ea5004',
-           peliculas:[], //aparecer personajes
-           nextUrl:'',   
+           peliculas:[],
            pelis2: [],
            valor: '',
            page: 2   
@@ -17,8 +15,8 @@ class TodasPeliculas extends Component{
     }
 
     componentDidMount(){
-        //BUscamos datos
-        fetch('https://api.themoviedb.org/3/movie/popular?api_key='+ this.state.key )
+        //Buscamos datos
+        fetch('https://api.themoviedb.org/3/movie/popular?api_key=0e7a6bf53a9c840b66557a6d28ea5004')
         .then( res => res.json())
         .then( data => this.setState({
                 peliculas: data.results
@@ -26,21 +24,21 @@ class TodasPeliculas extends Component{
             ))
         .catch()
 
-        fetch('https://api.themoviedb.org/3/movie/now_playing?api_key=' + this.state.key)
+        fetch('https://api.themoviedb.org/3/movie/now_playing?api_key=0e7a6bf53a9c840b66557a6d28ea5004')
         .then( res => res.json())
         .then( data => this.setState({
                 peliculas: data.results
             },() => console.log(this.state.peliculas)
             ))
-        .catch()
-       
+        .catch() 
     }
 
     verMas(){
         this.setState({
             page: this.state.page + 1
         })
-        fetch('https://api.themoviedb.org/3/movie/popular?api_key='+ this.state.key  + this.state.page)
+
+        fetch('https://api.themoviedb.org/3/movie/popular?api_key=0e7a6bf53a9c840b66557a6d28ea5004&page=' + this.state.page)
         .then( res => res.json())
         .then( data => this.setState({
                 peliculas: this.state.peliculas.concat(data.results)
@@ -48,7 +46,7 @@ class TodasPeliculas extends Component{
             ))
         .catch()
 
-        fetch('https://api.themoviedb.org/3/movie/now_playing?api_key=' + this.state.key + this.state.page)
+        fetch('https://api.themoviedb.org/3/movie/now_playing?api_key=0e7a6bf53a9c840b66557a6d28ea5004&page=' + this.state.page)
         .then( res => res.json())
         .then( data => this.setState({
                 peliculas: this.state.peliculas.concat(data.results)
