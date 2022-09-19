@@ -32,18 +32,12 @@ class Home extends Component {
             }))
             .catch()
 
-        let favoritos = []
         let storage = JSON.stringify(localStorage.getItem('favoritos'))
 
-        if (storage !== null) {
-
-            favoritos = storage
-
-            if (favoritos.includes()) {
-                this.setState({
-                    añadirSacar: true
-                })
-            }
+        if (storage.includes(this.state.id)) {
+            this.setState({
+                añadirSacar: true
+            })
         }
     }
 
@@ -56,13 +50,13 @@ class Home extends Component {
             valor: e.target.value,
         }, () => {
             if (e.target.value.length !== 0) {
-                fetch('https://api.themoviedb.org/3/search/movie?api_key=' + this.state.key + '&query=' + this.state.valor)
-                    .then(data => data.json())
-                    .then(info => {
-                        this.setState({
-                            resultadosPelicula: info.results
-                        })
+                fetch('https://api.themoviedb.org/3/search/movie?api_key=0e7a6bf53a9c840b66557a6d28ea5004&query=' + this.state.valor)
+                .then(data => data.json())
+                .then(info => {
+                    this.setState({
+                        resultadosPelicula: info.results
                     })
+                })
             }
         })
     }

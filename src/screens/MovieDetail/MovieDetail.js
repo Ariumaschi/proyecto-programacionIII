@@ -10,7 +10,7 @@ class MovieDetail extends Component {
             movieData: {
                 genres: []
             },
-            añadirSacar: false
+            favorito: false
         }
     };
 
@@ -28,15 +28,14 @@ class MovieDetail extends Component {
 
         if (storage.includes(this.state.id)) {
             this.setState({
-                añadirSacar: true
+                favorito: true
             })
         }
     }
 
-    añadirFav(id) {
-
+    añadirSacar(id) {
         let storage = JSON.parse(localStorage.getItem('favoritos'))
-
+    
         if (storage.includes(id)) {
             storage = storage.filter(ID => ID !== id)
             this.setState({
@@ -48,9 +47,9 @@ class MovieDetail extends Component {
                 favorito: true
             })
         }
-    
+        
         localStorage.setItem('favoritos', JSON.stringify(storage))
-    }
+      }
 
     render() {
         return (
@@ -78,7 +77,7 @@ class MovieDetail extends Component {
                                     this.state.movieData.genres.map((Genero) => <li className='genero'>{Genero.name}</li>)
                                 }
                             </ul>
-                            <button className="agregarSacar" onClick={() => this.añadirFav(this.state.movieData.id)}>{this.state.añadirSacar ? 'Sacar' : 'Agregar'}</button>
+                            <button className="agregarSacar" onClick={() => this.añadirSacar(this.state.movieData.id)}>{this.state.favorito ? 'Sacar' : 'Agregar'}</button>
                         </section>
 
                     </article>
