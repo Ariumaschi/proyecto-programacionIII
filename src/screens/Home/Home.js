@@ -86,7 +86,7 @@ class Home extends Component {
                         <h1 className="h1">En cartelera</h1>
                         <section className="contenedor-card">
                             {
-                                this.state.cartelMovies.map((pelicula, idx) => <HomePeliculaCard key={pelicula + idx} datosPelicula={pelicula} />)
+                                this.state.cartelMovies.map((pelicula, idx) => <HomePeliculaCard key={pelicula.title + idx} datosPelicula={pelicula} />)
                             }
                             <div className="cont-vermas">
                                 <Link className="Link" to='/todas'> Ver Todas </Link>
@@ -99,7 +99,7 @@ class Home extends Component {
 
                         <section className="contenedor-card">
                             {
-                                this.state.resultadosPelicula.map((pelicula, idx) => <HomePeliculaCard key={pelicula + idx} datosPelicula={pelicula} añadirSacar={this.state.añadirSacar} />)
+                                this.state.resultadosPelicula.map((pelicula, idx) => <HomePeliculaCard key={pelicula.title + idx} datosPelicula={pelicula} añadirSacar={this.state.añadirSacar} />)
                             }
                         </section>
                     </React.Fragment>
