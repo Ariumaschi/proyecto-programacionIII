@@ -2,7 +2,7 @@
 
 ## Description
 
-MacMuVy is a React-based platform for exploring movies and series. The project provides a dynamic and interactive user interface that leverages the semi-public API from The Movie Database (TMDb) to fetch and display up-to-date information about movies and series. It is designed to offer a seamless user experience and is deployed on Vercel.
+MacMuvy is a React-based platform for exploring movies and series. The project provides a dynamic and interactive user interface that leverages the semi-public API from The Movie Database (TMDb) to fetch and display up-to-date information about movies and series. It is designed to offer a seamless user experience and is deployed on Vercel.
 
 ## Features
 
